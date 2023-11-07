@@ -1,0 +1,9 @@
+{
+	"name": "T5-ADF",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ad911255-7e87-465e-835a-ed8741fd3058",
+		"tenantId": "d57d32cc-c121-488f-b07b-dfe705680c71"
+	}
+}

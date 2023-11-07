@@ -21,7 +21,7 @@
 				},
 				"container": "countries-azure-sql-db"
 			},
-			"compressionCodec": "none"
+			"compressionCodec": "snappy"
 		},
 		"schema": []
 	},

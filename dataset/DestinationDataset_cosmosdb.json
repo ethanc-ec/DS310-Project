@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "cosmosdb_data",
+				"fileName": "covidpolicy",
 				"fileSystem": "policy-data-cosmosdb"
 			},
 			"compressionCodec": "snappy"

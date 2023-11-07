@@ -21,7 +21,7 @@
 				},
 				"container": "countries-azure-vm"
 			},
-			"compressionCodec": "none"
+			"compressionCodec": "snappy"
 		},
 		"schema": []
 	},

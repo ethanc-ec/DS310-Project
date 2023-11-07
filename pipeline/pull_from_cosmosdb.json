@@ -1,5 +1,5 @@
 {
-	"name": "cosmosdb_datalake_test",
+	"name": "pull_from_cosmosdb",
 	"properties": {
 		"activities": [
 			{

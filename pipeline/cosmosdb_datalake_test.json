@@ -47,7 +47,8 @@
 									"path": "$['CountryName']"
 								},
 								"sink": {
-									"name": "CountryName"
+									"name": "CountryName",
+									"type": "String"
 								}
 							},
 							{
@@ -55,7 +56,8 @@
 									"path": "$['CountryCode']"
 								},
 								"sink": {
-									"name": "CountryCode"
+									"name": "CountryCode",
+									"type": "String"
 								}
 							},
 							{
@@ -63,7 +65,8 @@
 									"path": "$['RegionName']"
 								},
 								"sink": {
-									"name": "RegionName"
+									"name": "RegionName",
+									"type": "String"
 								}
 							},
 							{
@@ -71,7 +74,8 @@
 									"path": "$['RegionCode']"
 								},
 								"sink": {
-									"name": "RegionCode"
+									"name": "RegionCode",
+									"type": "String"
 								}
 							},
 							{
@@ -79,7 +83,8 @@
 									"path": "$['Jurisdiction']"
 								},
 								"sink": {
-									"name": "Jurisdiction"
+									"name": "Jurisdiction",
+									"type": "String"
 								}
 							},
 							{
@@ -87,7 +92,8 @@
 									"path": "$['Date']"
 								},
 								"sink": {
-									"name": "Date"
+									"name": "Date",
+									"type": "DateTime"
 								}
 							},
 							{
@@ -95,7 +101,8 @@
 									"path": "$['C1_School closing']"
 								},
 								"sink": {
-									"name": "C1_School closing"
+									"name": "C1_School_closing",
+									"type": "Double"
 								}
 							},
 							{
@@ -103,7 +110,8 @@
 									"path": "$['C1_Flag']"
 								},
 								"sink": {
-									"name": "C1_Flag"
+									"name": "C1_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -111,7 +119,8 @@
 									"path": "$['C2_Workplace closing']"
 								},
 								"sink": {
-									"name": "C2_Workplace closing"
+									"name": "C2_Workplace_closing",
+									"type": "Double"
 								}
 							},
 							{
@@ -119,7 +128,8 @@
 									"path": "$['C2_Flag']"
 								},
 								"sink": {
-									"name": "C2_Flag"
+									"name": "C2_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -127,7 +137,8 @@
 									"path": "$['C3_Cancel public events']"
 								},
 								"sink": {
-									"name": "C3_Cancel public events"
+									"name": "C3_Cancel_public_events",
+									"type": "Double"
 								}
 							},
 							{
@@ -135,7 +146,8 @@
 									"path": "$['C3_Flag']"
 								},
 								"sink": {
-									"name": "C3_Flag"
+									"name": "C3_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -143,7 +155,8 @@
 									"path": "$['C4_Restrictions on gatherings']"
 								},
 								"sink": {
-									"name": "C4_Restrictions on gatherings"
+									"name": "C4_Restrictions_on_gatherings",
+									"type": "Double"
 								}
 							},
 							{
@@ -151,7 +164,8 @@
 									"path": "$['C4_Flag']"
 								},
 								"sink": {
-									"name": "C4_Flag"
+									"name": "C4_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -159,7 +173,8 @@
 									"path": "$['C5_Close public transport']"
 								},
 								"sink": {
-									"name": "C5_Close public transport"
+									"name": "C5_Close_public_transport",
+									"type": "Double"
 								}
 							},
 							{
@@ -167,7 +182,8 @@
 									"path": "$['C5_Flag']"
 								},
 								"sink": {
-									"name": "C5_Flag"
+									"name": "C5_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -175,7 +191,8 @@
 									"path": "$['C6_Stay at home requirements']"
 								},
 								"sink": {
-									"name": "C6_Stay at home requirements"
+									"name": "C6_Stay_at_home_requirements",
+									"type": "Double"
 								}
 							},
 							{
@@ -183,7 +200,8 @@
 									"path": "$['C6_Flag']"
 								},
 								"sink": {
-									"name": "C6_Flag"
+									"name": "C6_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -191,7 +209,8 @@
 									"path": "$['C7_Restrictions on internal movement']"
 								},
 								"sink": {
-									"name": "C7_Restrictions on internal movement"
+									"name": "C7_Restrictions_on_internal_movement",
+									"type": "Double"
 								}
 							},
 							{
@@ -199,7 +218,8 @@
 									"path": "$['C7_Flag']"
 								},
 								"sink": {
-									"name": "C7_Flag"
+									"name": "C7_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -207,7 +227,8 @@
 									"path": "$['C8_International travel controls']"
 								},
 								"sink": {
-									"name": "C8_International travel controls"
+									"name": "C8_International_travel_controls",
+									"type": "Double"
 								}
 							},
 							{
@@ -215,7 +236,8 @@
 									"path": "$['E1_Income support']"
 								},
 								"sink": {
-									"name": "E1_Income support"
+									"name": "E1_Income_support",
+									"type": "Double"
 								}
 							},
 							{
@@ -223,7 +245,8 @@
 									"path": "$['E1_Flag']"
 								},
 								"sink": {
-									"name": "E1_Flag"
+									"name": "E1_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -231,7 +254,8 @@
 									"path": "$['E2_Debt contract relief']"
 								},
 								"sink": {
-									"name": "E2_Debt contract relief"
+									"name": "E2_Debt_contract_relief",
+									"type": "Double"
 								}
 							},
 							{
@@ -239,7 +263,8 @@
 									"path": "$['E3_Fiscal measures']"
 								},
 								"sink": {
-									"name": "E3_Fiscal measures"
+									"name": "E3_Fiscal_measures",
+									"type": "Double"
 								}
 							},
 							{
@@ -247,7 +272,8 @@
 									"path": "$['E4_International support']"
 								},
 								"sink": {
-									"name": "E4_International support"
+									"name": "E4_International_support",
+									"type": "Double"
 								}
 							},
 							{
@@ -255,7 +281,8 @@
 									"path": "$['H1_Public information campaigns']"
 								},
 								"sink": {
-									"name": "H1_Public information campaigns"
+									"name": "H1_Public_information_campaigns",
+									"type": "Double"
 								}
 							},
 							{
@@ -263,7 +290,8 @@
 									"path": "$['H1_Flag']"
 								},
 								"sink": {
-									"name": "H1_Flag"
+									"name": "H1_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -271,7 +299,8 @@
 									"path": "$['H2_Testing policy']"
 								},
 								"sink": {
-									"name": "H2_Testing policy"
+									"name": "H2_Testing_policy",
+									"type": "Double"
 								}
 							},
 							{
@@ -279,7 +308,8 @@
 									"path": "$['H3_Contact tracing']"
 								},
 								"sink": {
-									"name": "H3_Contact tracing"
+									"name": "H3_Contact_tracing",
+									"type": "Double"
 								}
 							},
 							{
@@ -287,7 +317,8 @@
 									"path": "$['H4_Emergency investment in healthcare']"
 								},
 								"sink": {
-									"name": "H4_Emergency investment in healthcare"
+									"name": "H4_Emergency_investment_in_healthcare",
+									"type": "Double"
 								}
 							},
 							{
@@ -295,7 +326,8 @@
 									"path": "$['H5_Investment in vaccines']"
 								},
 								"sink": {
-									"name": "H5_Investment in vaccines"
+									"name": "H5_Investment_in_vaccines",
+									"type": "Double"
 								}
 							},
 							{
@@ -303,7 +335,8 @@
 									"path": "$['H6_Facial Coverings']"
 								},
 								"sink": {
-									"name": "H6_Facial Coverings"
+									"name": "H6_Facial_Coverings",
+									"type": "Double"
 								}
 							},
 							{
@@ -311,7 +344,8 @@
 									"path": "$['H6_Flag']"
 								},
 								"sink": {
-									"name": "H6_Flag"
+									"name": "H6_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -319,7 +353,8 @@
 									"path": "$['H7_Vaccination policy']"
 								},
 								"sink": {
-									"name": "H7_Vaccination policy"
+									"name": "H7_Vaccination_policy",
+									"type": "Double"
 								}
 							},
 							{
@@ -327,7 +362,8 @@
 									"path": "$['H7_Flag']"
 								},
 								"sink": {
-									"name": "H7_Flag"
+									"name": "H7_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -335,7 +371,7 @@
 									"path": "$['H8_Protection of elderly people']"
 								},
 								"sink": {
-									"name": "H8_Protection of elderly people"
+									"name": "H8_Protection_of_elderly_people"
 								}
 							},
 							{
@@ -343,7 +379,8 @@
 									"path": "$['H8_Flag']"
 								},
 								"sink": {
-									"name": "H8_Flag"
+									"name": "H8_Flag",
+									"type": "Boolean"
 								}
 							},
 							{
@@ -351,7 +388,8 @@
 									"path": "$['M1_Wildcard']"
 								},
 								"sink": {
-									"name": "M1_Wildcard"
+									"name": "M1_Wildcard",
+									"type": "Double"
 								}
 							},
 							{
@@ -359,7 +397,8 @@
 									"path": "$['StringencyIndex']"
 								},
 								"sink": {
-									"name": "StringencyIndex"
+									"name": "StringencyIndex",
+									"type": "Double"
 								}
 							},
 							{
@@ -367,7 +406,8 @@
 									"path": "$['StringencyIndexForDisplay']"
 								},
 								"sink": {
-									"name": "StringencyIndexForDisplay"
+									"name": "StringencyIndexForDisplay",
+									"type": "Double"
 								}
 							},
 							{
@@ -375,7 +415,8 @@
 									"path": "$['StringencyLegacyIndex']"
 								},
 								"sink": {
-									"name": "StringencyLegacyIndex"
+									"name": "StringencyLegacyIndex",
+									"type": "Double"
 								}
 							},
 							{
@@ -383,7 +424,8 @@
 									"path": "$['StringencyLegacyIndexForDisplay']"
 								},
 								"sink": {
-									"name": "StringencyLegacyIndexForDisplay"
+									"name": "StringencyLegacyIndexForDisplay",
+									"type": "Double"
 								}
 							},
 							{
@@ -391,7 +433,8 @@
 									"path": "$['GovernmentResponseIndex']"
 								},
 								"sink": {
-									"name": "GovernmentResponseIndex"
+									"name": "GovernmentResponseIndex",
+									"type": "Double"
 								}
 							},
 							{
@@ -399,7 +442,8 @@
 									"path": "$['GovernmentResponseIndexForDisplay']"
 								},
 								"sink": {
-									"name": "GovernmentResponseIndexForDisplay"
+									"name": "GovernmentResponseIndexForDisplay",
+									"type": "Double"
 								}
 							},
 							{
@@ -407,7 +451,8 @@
 									"path": "$['ContainmentHealthIndex']"
 								},
 								"sink": {
-									"name": "ContainmentHealthIndex"
+									"name": "ContainmentHealthIndex",
+									"type": "Double"
 								}
 							},
 							{
@@ -415,7 +460,8 @@
 									"path": "$['ContainmentHealthIndexForDisplay']"
 								},
 								"sink": {
-									"name": "ContainmentHealthIndexForDisplay"
+									"name": "ContainmentHealthIndexForDisplay",
+									"type": "Double"
 								}
 							},
 							{
@@ -423,7 +469,8 @@
 									"path": "$['EconomicSupportIndex']"
 								},
 								"sink": {
-									"name": "EconomicSupportIndex"
+									"name": "EconomicSupportIndex",
+									"type": "Double"
 								}
 							},
 							{
@@ -431,7 +478,8 @@
 									"path": "$['EconomicSupportIndexForDisplay']"
 								},
 								"sink": {
-									"name": "EconomicSupportIndexForDisplay"
+									"name": "EconomicSupportIndexForDisplay",
+									"type": "Double"
 								}
 							},
 							{
@@ -439,7 +487,8 @@
 									"path": "$['id']"
 								},
 								"sink": {
-									"name": "id"
+									"name": "id",
+									"type": "String"
 								}
 							},
 							{
@@ -447,7 +496,8 @@
 									"path": "$['_rid']"
 								},
 								"sink": {
-									"name": "_rid"
+									"name": "rid",
+									"type": "String"
 								}
 							},
 							{
@@ -455,7 +505,8 @@
 									"path": "$['_self']"
 								},
 								"sink": {
-									"name": "_self"
+									"name": "self",
+									"type": "String"
 								}
 							},
 							{
@@ -463,7 +514,8 @@
 									"path": "$['_etag']"
 								},
 								"sink": {
-									"name": "_etag"
+									"name": "etag",
+									"type": "String"
 								}
 							},
 							{
@@ -471,7 +523,8 @@
 									"path": "$['_attachments']"
 								},
 								"sink": {
-									"name": "_attachments"
+									"name": "attachments",
+									"type": "String"
 								}
 							},
 							{
@@ -479,10 +532,13 @@
 									"path": "$['_ts']"
 								},
 								"sink": {
-									"name": "_ts"
+									"name": "ts",
+									"type": "Double"
 								}
 							}
-						]
+						],
+						"collectionReference": "",
+						"mapComplexValuesToString": false
 					}
 				},
 				"inputs": [

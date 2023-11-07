@@ -1,0 +1,19 @@
+{
+	"name": "DestinationDataset_18e",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "policy-data-cosmosdb"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}

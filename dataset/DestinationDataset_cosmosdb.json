@@ -1,5 +1,5 @@
 {
-	"name": "DestinationDataset_18e",
+	"name": "DestinationDataset_cosmosdb",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",
@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "cosmosdb_data",
 				"fileSystem": "policy-data-cosmosdb"
 			},
 			"compressionCodec": "snappy"

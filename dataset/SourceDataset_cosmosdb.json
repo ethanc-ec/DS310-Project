@@ -1,5 +1,5 @@
 {
-	"name": "SourceDataset_18e",
+	"name": "SourceDataset_cosmosdb",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "CosmosDbNoSql1",

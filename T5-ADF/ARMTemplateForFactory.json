@@ -1759,7 +1759,7 @@
 						"select2, select4 union(byName: true)~> union1",
 						"select6, select5 join(CountryCode == ISO3",
 						"     && toDate(Date) == Updated,",
-						"     joinType:'outer',",
+						"     joinType:'inner',",
 						"     matchType:'exact',",
 						"     ignoreSpaces: false,",
 						"     broadcast: 'auto')~> join5",

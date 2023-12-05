@@ -13,7 +13,7 @@
 				"fileName": "agg_data",
 				"fileSystem": "normalized-ods"
 			},
-			"compressionCodec": "snappy"
+			"compressionCodec": "none"
 		},
 		"schema": []
 	}

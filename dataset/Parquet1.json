@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "agg_data",
 				"fileSystem": "normalized-ods"
 			},
 			"compressionCodec": "none"

@@ -1,0 +1,265 @@
+{
+	"name": "dataflow2_corrected",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sqlCountry"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "vmCountry"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sqlMetrics"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "vmMetrics"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "sqlDates"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "vmDates"
+				},
+				{
+					"linkedService": {
+						"referenceName": "AzureBlobStorage1",
+						"type": "LinkedServiceReference"
+					},
+					"name": "cosmosPolicy"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "country_sink",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "date_sink",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
+				}
+			],
+			"transformations": [
+				{
+					"name": "unionCountry"
+				},
+				{
+					"name": "unionMetrics"
+				},
+				{
+					"name": "unionDates"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          Country as string,",
+				"          CountryCode as string,",
+				"          Latitude as decimal(10,5),",
+				"          Longitude as decimal(10,5)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet',",
+				"     container: 'countries-azure-sql-db',",
+				"     fileName: 'dboCountry.txt') ~> sqlCountry",
+				"source(output(",
+				"          Country as string,",
+				"          CountryCode as string,",
+				"          Latitude as decimal(10,5),",
+				"          Longitude as decimal(10,5)",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet',",
+				"     container: 'countries-azure-vm',",
+				"     fileName: 'dboCountry.txt') ~> vmCountry",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet',",
+				"     container: 'countries-azure-sql-db',",
+				"     fileName: 'dboCovid19_Metrics.txt') ~> sqlMetrics",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet',",
+				"     container: 'countries-azure-vm',",
+				"     fileName: 'dboCovid19_Metrics.txt') ~> vmMetrics",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet',",
+				"     container: 'countries-azure-sql-db',",
+				"     fileName: 'dboDates.txt') ~> sqlDates",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet',",
+				"     container: 'countries-azure-vm',",
+				"     fileName: 'dboDates.txt') ~> vmDates",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     format: 'parquet',",
+				"     container: 'policy-data-cosmosdb',",
+				"     fileName: 'covidpolicy') ~> cosmosPolicy",
+				"sqlCountry, vmCountry union(byName: true)~> unionCountry",
+				"sqlMetrics, vmMetrics union(byName: true)~> unionMetrics",
+				"sqlDates, vmDates union(byName: true)~> unionDates",
+				"unionCountry sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          CountryName as string,",
+				"          CountryCode as string,",
+				"          Date as timestamp,",
+				"          C1_School_closing as double,",
+				"          C1_Flag as boolean,",
+				"          C2_Workplace_closing as double,",
+				"          C2_Flag as boolean,",
+				"          C3_Cancel_public_events as double,",
+				"          C3_Flag as boolean,",
+				"          C4_Restrictions_on_gatherings as double,",
+				"          C4_Flag as boolean,",
+				"          C5_Close_public_transport as double,",
+				"          C5_Flag as boolean,",
+				"          C6_Stay_at_home_requirements as double,",
+				"          C6_Flag as boolean,",
+				"          C7_Restrictions_on_internal_movement as double,",
+				"          C7_Flag as boolean,",
+				"          C8_International_travel_controls as double,",
+				"          E1_Income_support as double,",
+				"          E1_Flag as boolean,",
+				"          E2_Debt_contract_relief as double,",
+				"          E3_Fiscal_measures as double,",
+				"          E4_International_support as double,",
+				"          H1_Public_information_campaigns as double,",
+				"          H1_Flag as boolean,",
+				"          H2_Testing_policy as double,",
+				"          H3_Contact_tracing as double,",
+				"          H4_Emergency_investment_in_healthcare as double,",
+				"          H5_Investment_in_vaccines as double,",
+				"          H6_Facial_Coverings as double,",
+				"          H6_Flag as boolean,",
+				"          H7_Vaccination_policy as double,",
+				"          H7_Flag as boolean,",
+				"          H8_Protection_of_elderly_people as long,",
+				"          H8_Flag as boolean,",
+				"          M1_Wildcard as double,",
+				"          StringencyIndex as double,",
+				"          StringencyLegacyIndex as double,",
+				"          GovernmentResponseIndex as double,",
+				"          ContainmentHealthIndex as double,",
+				"          EconomicSupportIndex as double,",
+				"          Updated as date,",
+				"          Confirmed as integer,",
+				"          Confirmed_Change as integer,",
+				"          Deaths as integer,",
+				"          Deaths_Change as integer,",
+				"          Recovered as integer,",
+				"          Recovered_Change as integer,",
+				"          ISO3 as string,",
+				"          Country as string",
+				"     ),",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1",
+				"unionDates sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          CountryName as string,",
+				"          CountryCode as string,",
+				"          Date as timestamp,",
+				"          C1_School_closing as double,",
+				"          C1_Flag as boolean,",
+				"          C2_Workplace_closing as double,",
+				"          C2_Flag as boolean,",
+				"          C3_Cancel_public_events as double,",
+				"          C3_Flag as boolean,",
+				"          C4_Restrictions_on_gatherings as double,",
+				"          C4_Flag as boolean,",
+				"          C5_Close_public_transport as double,",
+				"          C5_Flag as boolean,",
+				"          C6_Stay_at_home_requirements as double,",
+				"          C6_Flag as boolean,",
+				"          C7_Restrictions_on_internal_movement as double,",
+				"          C7_Flag as boolean,",
+				"          C8_International_travel_controls as double,",
+				"          E1_Income_support as double,",
+				"          E1_Flag as boolean,",
+				"          E2_Debt_contract_relief as double,",
+				"          E3_Fiscal_measures as double,",
+				"          E4_International_support as double,",
+				"          H1_Public_information_campaigns as double,",
+				"          H1_Flag as boolean,",
+				"          H2_Testing_policy as double,",
+				"          H3_Contact_tracing as double,",
+				"          H4_Emergency_investment_in_healthcare as double,",
+				"          H5_Investment_in_vaccines as double,",
+				"          H6_Facial_Coverings as double,",
+				"          H6_Flag as boolean,",
+				"          H7_Vaccination_policy as double,",
+				"          H7_Flag as boolean,",
+				"          H8_Protection_of_elderly_people as long,",
+				"          H8_Flag as boolean,",
+				"          M1_Wildcard as double,",
+				"          StringencyIndex as double,",
+				"          StringencyLegacyIndex as double,",
+				"          GovernmentResponseIndex as double,",
+				"          ContainmentHealthIndex as double,",
+				"          EconomicSupportIndex as double,",
+				"          Updated as date,",
+				"          Confirmed as integer,",
+				"          Confirmed_Change as integer,",
+				"          Deaths as integer,",
+				"          Deaths_Change as integer,",
+				"          Recovered as integer,",
+				"          Recovered_Change as integer,",
+				"          ISO3 as string,",
+				"          Country as string",
+				"     ),",
+				"     format: 'parquet',",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink2"
+			]
+		}
+	}
+}

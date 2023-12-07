@@ -588,7 +588,7 @@
 								"referenceName": "country_sink",
 								"type": "DatasetReference"
 							},
-							"name": "sink1"
+							"name": "sinkCountry"
 						},
 						{
 							"dataset": {
@@ -818,12 +818,14 @@
 						"          Country as string",
 						"     ),",
 						"     format: 'parquet',",
+						"     partitionFileNames:['Geography'],",
 						"     truncate: true,",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> sink1",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> sinkCountry",
 						"unionDates sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     input(",
@@ -879,11 +881,13 @@
 						"          Country as string",
 						"     ),",
 						"     format: 'parquet',",
+						"     partitionFileNames:['Date'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> sinkDates",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> sinkDates",
 						"cosmosPolicy sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     input(",
@@ -939,11 +943,13 @@
 						"          Country as string",
 						"     ),",
 						"     format: 'parquet',",
+						"     partitionFileNames:['Policies'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> sinkPolicy"
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> sinkPolicy"
 					]
 				}
 			},
@@ -1276,11 +1282,13 @@
 						"          Country as string",
 						"     ),",
 						"     format: 'parquet',",
+						"     partitionFileNames:['Cases'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> sinkCases",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> sinkCases",
 						"selectDeaths sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     input(",
@@ -1336,11 +1344,13 @@
 						"          Country as string",
 						"     ),",
 						"     format: 'parquet',",
+						"     partitionFileNames:['Deaths'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> sinkDeaths",
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> sinkDeaths",
 						"select3 sink(allowSchemaDrift: true,",
 						"     validateSchema: false,",
 						"     input(",
@@ -1396,11 +1406,13 @@
 						"          Country as string",
 						"     ),",
 						"     format: 'parquet',",
+						"     partitionFileNames:['Recoveries'],",
 						"     umask: 0022,",
 						"     preCommands: [],",
 						"     postCommands: [],",
 						"     skipDuplicateMapInputs: true,",
-						"     skipDuplicateMapOutputs: true) ~> sinkRecoveries"
+						"     skipDuplicateMapOutputs: true,",
+						"     partitionBy('hash', 1)) ~> sinkRecoveries"
 					]
 				}
 			},
@@ -1435,7 +1447,7 @@
 									"sqlDates": {},
 									"vmDates": {},
 									"cosmosPolicy": {},
-									"sink1": {},
+									"sinkCountry": {},
 									"sinkDates": {},
 									"sinkPolicy": {}
 								}

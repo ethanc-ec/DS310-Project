@@ -194,30 +194,6 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/full_sink')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage1",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "Parquet",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileSystem": "normalized-ods"
-					},
-					"compressionCodec": "none"
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/SourceDataset_cosmosdb')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -869,26 +845,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/SqlServer1')]",
-			"type": "Microsoft.DataFactory/factories/linkedServices",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"type": "SqlServer",
-				"typeProperties": {
-					"connectionString": "[parameters('SqlServer1_connectionString')]"
-				},
-				"connectVia": {
-					"referenceName": "T5-SHIR",
-					"type": "IntegrationRuntimeReference"
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/integrationRuntimes/T5-SHIR')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/sink_policy')]",
+			"name": "[concat(parameters('factoryName'), '/full_sink')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -905,208 +862,7 @@
 					},
 					"compressionCodec": "none"
 				},
-				"schema": [
-					{
-						"name": "CountryName",
-						"type": "UTF8"
-					},
-					{
-						"name": "CountryCode",
-						"type": "UTF8"
-					},
-					{
-						"name": "Date",
-						"type": "INT96"
-					},
-					{
-						"name": "C1_School_closing",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "C1_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "C2_Workplace_closing",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "C2_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "C3_Cancel_public_events",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "C3_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "C4_Restrictions_on_gatherings",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "C4_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "C5_Close_public_transport",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "C5_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "C6_Stay_at_home_requirements",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "C6_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "C7_Restrictions_on_internal_movement",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "C7_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "C8_International_travel_controls",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "E1_Income_support",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "E1_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "E2_Debt_contract_relief",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "E3_Fiscal_measures",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "E4_International_support",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "H1_Public_information_campaigns",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "H1_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "H2_Testing_policy",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "H3_Contact_tracing",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "H4_Emergency_investment_in_healthcare",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "H5_Investment_in_vaccines",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "H6_Facial_Coverings",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "H6_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "H7_Vaccination_policy",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "H7_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "H8_Protection_of_elderly_people",
-						"type": "INT64"
-					},
-					{
-						"name": "H8_Flag",
-						"type": "BOOLEAN"
-					},
-					{
-						"name": "M1_Wildcard",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "StringencyIndex",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "StringencyLegacyIndex",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "GovernmentResponseIndex",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "ContainmentHealthIndex",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "EconomicSupportIndex",
-						"type": "DOUBLE"
-					},
-					{
-						"name": "Updated",
-						"type": "DATE"
-					},
-					{
-						"name": "Confirmed",
-						"type": "INT32"
-					},
-					{
-						"name": "Confirmed_Change",
-						"type": "INT32"
-					},
-					{
-						"name": "Deaths",
-						"type": "INT32"
-					},
-					{
-						"name": "Deaths_Change",
-						"type": "INT32"
-					},
-					{
-						"name": "Recovered",
-						"type": "INT32"
-					},
-					{
-						"name": "Recovered_Change",
-						"type": "INT32"
-					},
-					{
-						"name": "ISO3",
-						"type": "UTF8"
-					},
-					{
-						"name": "Country",
-						"type": "UTF8"
-					}
-				]
+				"schema": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
@@ -1578,7 +1334,7 @@
 						"type": "AzureBlobFSLocation",
 						"fileSystem": "normalized-ods"
 					},
-					"compressionCodec": "snappy"
+					"compressionCodec": "none"
 				},
 				"schema": [
 					{
@@ -1785,6 +1541,250 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/sink_policy')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage1",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileSystem": "normalized-ods"
+					},
+					"compressionCodec": "none"
+				},
+				"schema": [
+					{
+						"name": "CountryName",
+						"type": "UTF8"
+					},
+					{
+						"name": "CountryCode",
+						"type": "UTF8"
+					},
+					{
+						"name": "Date",
+						"type": "INT96"
+					},
+					{
+						"name": "C1_School_closing",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "C1_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "C2_Workplace_closing",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "C2_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "C3_Cancel_public_events",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "C3_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "C4_Restrictions_on_gatherings",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "C4_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "C5_Close_public_transport",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "C5_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "C6_Stay_at_home_requirements",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "C6_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "C7_Restrictions_on_internal_movement",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "C7_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "C8_International_travel_controls",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "E1_Income_support",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "E1_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "E2_Debt_contract_relief",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "E3_Fiscal_measures",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "E4_International_support",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "H1_Public_information_campaigns",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "H1_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "H2_Testing_policy",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "H3_Contact_tracing",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "H4_Emergency_investment_in_healthcare",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "H5_Investment_in_vaccines",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "H6_Facial_Coverings",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "H6_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "H7_Vaccination_policy",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "H7_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "H8_Protection_of_elderly_people",
+						"type": "INT64"
+					},
+					{
+						"name": "H8_Flag",
+						"type": "BOOLEAN"
+					},
+					{
+						"name": "M1_Wildcard",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "StringencyIndex",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "StringencyLegacyIndex",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "GovernmentResponseIndex",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "ContainmentHealthIndex",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "EconomicSupportIndex",
+						"type": "DOUBLE"
+					},
+					{
+						"name": "Updated",
+						"type": "DATE"
+					},
+					{
+						"name": "Confirmed",
+						"type": "INT32"
+					},
+					{
+						"name": "Confirmed_Change",
+						"type": "INT32"
+					},
+					{
+						"name": "Deaths",
+						"type": "INT32"
+					},
+					{
+						"name": "Deaths_Change",
+						"type": "INT32"
+					},
+					{
+						"name": "Recovered",
+						"type": "INT32"
+					},
+					{
+						"name": "Recovered_Change",
+						"type": "INT32"
+					},
+					{
+						"name": "ISO3",
+						"type": "UTF8"
+					},
+					{
+						"name": "Country",
+						"type": "UTF8"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage1')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/SqlServer1')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "SqlServer",
+				"typeProperties": {
+					"connectionString": "[parameters('SqlServer1_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "T5-SHIR",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/T5-SHIR')]"
 			]
 		},
 		{

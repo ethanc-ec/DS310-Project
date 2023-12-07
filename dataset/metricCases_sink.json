@@ -1,5 +1,5 @@
 {
-	"name": "sink_policy",
+	"name": "metricCases_sink",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureDataLakeStorage1",

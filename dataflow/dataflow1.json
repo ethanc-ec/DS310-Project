@@ -57,7 +57,7 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "Parquet1",
+						"referenceName": "full_sink",
 						"type": "DatasetReference"
 					},
 					"name": "sink1",

@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "Geography.parquet",
 				"fileSystem": "normalized-ods"
 			},
 			"compressionCodec": "none"
@@ -216,5 +217,6 @@
 				"type": "UTF8"
 			}
 		]
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }

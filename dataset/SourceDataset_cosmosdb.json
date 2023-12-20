@@ -162,5 +162,6 @@
 		"typeProperties": {
 			"collectionName": "covidpolicy"
 		}
-	}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
 }
